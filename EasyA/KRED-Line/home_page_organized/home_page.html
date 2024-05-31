@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KRED Line - Borrower Portal</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>KRED Line - Borrower Portal</h1>
+    </header>
+    <div style="position:absolute;width:177.825px;height:43.416px;left:136.175px;top:16px;overflow:visible;" data-type="Group" data-name="logo" class="aab_Class">
+        <div data-type="Text" data-name="Agency" class="aac_Class">
+            <span>KRED Line - Borrower Portal</span>
+        </div>
+        <svg data-type="Path" data-name="Polygon" class="aad" viewBox="1.175 0 45.651 43.416">
+            <path class="aad_Class" d="M 24 0 L 46.82535552978516 16.58359146118164 L 38.10684585571289 43.41640853881836 L 9.893154144287109 43.41640853881836 L 1.174643635749817 16.58359146118164 L 24 0 Z">
+            </path>
+        </svg>
+        <svg data-type="Path" data-name="Polygon" class="aae" viewBox="0.465 0 18.07 17.186">
+            <path class="aae_Class" d="M 9.5 0 L 18.53503608703613 6.564338684082031 L 15.08395957946777 17.18566131591797 L 3.916040182113647 17.18566131591797 L 0.4649631083011627 6.564338684082031 L 9.5 0 Z">
+            </path>
+        </svg>
+    </div>
+    <form id="loanForm" class="form-container">
+        <input type="text" id="secretKey" class="input-field" placeholder="Wallet Public Address">
+        <input type="text" id="collateralAsset" class="input-field" placeholder="Collateral Asset (Link)">
+        <input type="text" id="collateralAmount" class="input-field" placeholder="Collateral Amount (XLM)">
+        <input type="text" id="loanAmount" class="input-field" placeholder="Loan Requested (XLM)">
+        <input type="date" id="loanDuration" class="input-field">
+        <button type="button" onclick="connectToLobstr()" class="button">Connect to Lobstr Wallet</button>
+        <button type="submit" class="button">Submit Request</button>
+    </form>
+</div>
+<script src="scripts.js"></script>
+</body>
+</html>
