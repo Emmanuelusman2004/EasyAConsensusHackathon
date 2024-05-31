@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Collateral Loan</title>
+</head>
+<body>
+    <h1>Stellar Collateral Loan</h1>
+    <button onclick="fundAccount()">Fund Account</button>
+    <button onclick="createTrustline()">Create Trustline</button>
+    <button onclick="transferCollateral()">Transfer Collateral</button>
+    
+    <script>
+        async function fundAccount() {
+            const publicKey = prompt("Enter Public Key:");
+            const response = await fetch('/fund_account', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ public_key: publicKey })
+            });
+            const result = await response.json();
+            alert(JSON.stringify(result));
+        }
+
+        async function createTrustline() {
+            const secret = prompt("Enter Secret Key:");
+            const assetCode = prompt("Enter Asset Code:");
+            const assetIssuer = prompt("Enter Asset Issuer:");
+            const response = await fetch('/create_trustline', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ secret, asset_code: assetCode, asset_issuer: assetIssuer })
+            });
+            const result = await response.json();
+            alert(JSON.stringify(result));
+        }
+
+        async function transferCollateral() {
+            const borrowerSecret = prompt("Enter Borrower Secret Key:");
+            const intermediaryPublicKey = prompt("Enter Intermediary Public Key:");
+            const assetCode = prompt("Enter Asset Code:");
+            const assetIssuer = prompt("Enter Asset Issuer:");
+            const amount = prompt("Enter Amount:");
+            const response = await fetch('/transfer_collateral', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ borrower_secret: borrowerSecret, intermediary_public_key: intermediaryPublicKey, asset_code: assetCode, asset_issuer: assetIssuer, amount })
+            });
+            const result = await response.json();
+            alert(JSON.stringify(result));
+        }
+    </script>
+</body>
+</html>
